@@ -21,6 +21,10 @@ use App\Http\Controllers\Admin\AdminController;
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('index', 'index')->name('index');
     Route::get('admin', 'admin')->name('admin');
+    Route::get('admin/create', 'add')->name('admin.add');
+    Route::post('admin/create', 'create')->name('admin.create');
+    Route::get('admin/edit', 'edit')->name('admin.edit');
+    Route::post('admin/edit', 'update')->name('admin.update');
 });
 
 use App\Http\Controllers\Admin\NewsController;

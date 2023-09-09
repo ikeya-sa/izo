@@ -12,7 +12,9 @@
     <!-- メイン　ボタンエリア -->
     <div class="button-area">
         <div class="create-button">
-            <button class="form-button" onclick="{{ route('admin.news.add') }}">新規登録</button>
+            <a href="{{ route('admin.news.add') }}">
+                <button class="form-button" type="button">新規登録</button>
+            </a>
         </div>
     </div>
     <!-- メイン　一覧エリア -->

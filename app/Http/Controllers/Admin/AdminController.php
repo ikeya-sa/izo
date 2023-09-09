@@ -17,6 +17,11 @@ class AdminController extends Controller
         return view('admin.admin');
     }
     
+    public function add()
+    {
+        return view('admin.admin.create');
+    }
+    
     public function create(Request $request)
     {
         // Validationを行う

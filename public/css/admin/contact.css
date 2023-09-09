@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/* メイン　一覧エリア全体 */
+.contact-list-area {
+    padding: 20px 80px 0;
+    line-height: 2;
+}
+
+/* メイン　一覧エリア要素 */
+.list-name {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* メイン　一覧設定 */
+.contact-list {
+    max-width: 1040px;
+}
+
+.td-id {
+    width: 30px;
+    text-align: right;
+}
+
+.td-contact-date,
+.td-reply-date {
+    width: 100px;
+    text-align: right;
+}
+
+.td-name,
+.td-genre {
+    max-width: 120px;
+    word-wrap: break-word;
+}
+
+.td-message {
+    max-width: 570px;
+    word-wrap: break-word;
+}
+
+@media (max-width: 800px) {
+    /* メイン　一覧エリア全体 */
+    .contact-list-area {
+        padding: 10px 30px;
+    }
+    
+    /* メイン　一覧設定 */
+    .th-genre,
+    .th-message,
+    .td-genre,
+    .td-message {
+        display: none;
+    }
+}

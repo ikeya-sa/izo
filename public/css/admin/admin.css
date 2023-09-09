@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* メイン　ボタンエリア全体 */
+.button-area {
+    padding: 20px 80px 0;
+}
+
+/* メイン　一覧エリア全体 */
+.admin-list-area {
+    padding: 20px 80px 0;
+    line-height: 2;
+}
+
+/* メイン　一覧エリア要素 */
+.list-name {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* メイン　一覧設定 */
+.admin-list {
+    max-width: 1040px;
+}
+
+.td-id {
+    width: 30px;
+    text-align: right;
+}
+
+.td-name,
+.td-email {
+    max-width: 480px;
+    word-wrap: break-word;
+}
+
+.td-link {
+    width: 50px;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    /* メイン　ボタンエリア全体 */
+    .button-area {
+        justify-content: center;
+    }
+
+    /* メイン　一覧エリア全体 */
+    .admin-list-area {
+        padding: 10px 30px;
+    }
+
+    /* メイン　一覧設定 */
+    .td-name,
+    .td-email {
+        max-width: 120px;
+    }
+}

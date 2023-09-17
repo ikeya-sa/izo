@@ -28,6 +28,11 @@
     text-align: right;
 }
 
+.td-news-date {
+    width: 100px;
+    text-align: right;
+}
+
 .td-title {
     width: 200px;
 }

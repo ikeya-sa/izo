@@ -23,12 +23,13 @@
                 <ul class="site-menu-link">
                     <li><a href="{{ route('admin.index') }}">管理メニューへ</a></li>
                     <li>
-                        <a href={{ route('logout') }} onclick="event.preventDefault();
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             ログアウト
                         </a>
-                    <form id='logout-form' action={{ route('logout')}} method="POST" style="display: none;">
+                    <form id='logout-form' action="{{ route('custom-logout')}}" method="POST" style="display: none;">
                         @csrf
+                    </form>
                     </li>
                 </ul>
             </div>

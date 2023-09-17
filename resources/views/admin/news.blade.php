@@ -23,12 +23,14 @@
             <caption class="list-name">News一覧</caption>
             <tr>
                 <th class="th-id">ID</th>
+                <th class="th-news-date">掲載日</th>
                 <th class="th-title">タイトル</th>
                 <th class="th-body">本文</th>
                 <th class="th-link">操作</th>
             </tr>
             <tr>
                 <td class="td-id">1</td>
+                <td class="td-news-date">2023/8/31</td>
                 <td class="td-title">タイトル1</td>
                 <td class="td-body">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</td>
                 <td class="td-link">
@@ -39,6 +41,7 @@
             </tr>
             <tr>
                 <td class="td-id">2</td>
+                <td class="td-news-date">2023/8/25</td>
                 <td class="td-title">タイトル2</td>
                 <td class="td-body">説明文説明文説明文説明文説明文説明文説明文</td>
                 <td class="td-link">
@@ -49,6 +52,7 @@
             </tr>
             <tr>
                 <td class="td-id">3</td>
+                <td class="td-news-date">2023/8/14</td>
                 <td class="td-title">タイトル3</td>
                 <td class="td-body">説明文説明文説明文</td>
                 <td class="td-link">

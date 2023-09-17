@@ -45,6 +45,17 @@ Route::controller(ContactController::class)->prefix('admin')->name('admin.')->mi
 
 Auth::routes();
 
-Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('logout', 'Auth\LoginController@logout')->name('custom-logout');
+
+use App\Http\Controllers\Visitor\VisitorController;
+Route::controller(VisitorController::class)->group(function () {
+    Route::get('index', 'index');
+    Route::get('about', 'about');
+    Route::get('discography', 'discography');
+    Route::get('lesson', 'lesson');
+    Route::get('contact', 'add');
+    Route::post('contact', 'create');
+    Route::get('thanks', 'thanks');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

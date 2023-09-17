@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+/* タイトル全体 */
+.main-title-inner {
+    height: calc(100vh - 110px);
+    background-image: url(/images/top/top_view.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+/* タイトル要素 */
+.main-title-text {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: right;
+    padding-bottom: 240px;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+}
+
+/* News、Youtube共通要素 */
+article {
+    max-width: 1200px;
+    background-color: #1a1717;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+hr {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #c0c0c0;
+    margin: 20px 0;
+}
+
+/* News要素 */
+.news-content {
+    display: flex;
+}
+
+/* News左ブロック要素 */
+.news-left {
+    width: 30%;
+}
+
+.news-content-date {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.news-content-img {
+    margin-top: 10px;
+}
+
+/* News右ブロック要素 */
+.news-right {
+    width: 70%;
+    padding-left: 30px;
+}
+
+.news-content-title {
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 30px;
+}
+
+.news-content-body {
+    line-height: 20px;
+}
+
+.news-ref-link {
+    text-decoration: underline;
+    line-height: 30px;
+}
+
+/* Youtube要素 */
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,360px);
+    justify-content: center;
+    column-gap: 40px;
+    row-gap: 20px;
+    margin: 20px 0;
+}
+
+@media (max-width: 800px) {
+    /* タイトル全体 */
+    .main-title-inner {
+        height: calc(100vh - 60px);
+        background-image: url(/images/top/top_view_m.jpg);
+        background-position: center;
+        align-items: flex-end;
+    }
+  
+    /* タイトル要素 */
+    .main-title-text{
+        max-width: 200px;
+        text-align: left;
+        font-size: 28px;
+    }
+
+    /* News要素　縦並びに変更 */
+    .news-content {
+        flex-direction: column; 
+    }
+  
+    .news-content-title {
+        line-height: 24px;
+        margin-top: 16px;
+    }
+  
+    .news-left {
+        width: 100%;
+    }
+
+    .news-right {
+        width: 100%;
+        padding-left: 0px;
+    }
+}

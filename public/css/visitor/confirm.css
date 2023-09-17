@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/* Confirm全体 */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+hr {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #c0c0c0;
+    margin: 20px 0;
+}
+
+.confirm {
+    max-width: 900px;
+    background-color: #1a1717;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 30px;
+}
+
+.confirm-body p {
+    margin-bottom: 20px;
+}
+
+/* フォームエリア全体 */
+.form-area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* フォームエリア要素 */
+.form-area dt {
+    width: 300px;
+    padding: 15px 0;
+    font-weight: bold;
+    line-height: 24px;
+}
+
+.form-area dt .required::after {
+    content: '※';
+    color: #ff0000;
+    margin-left: 6px;
+}
+
+.form-area dd {
+    width: calc(100% - 300px);
+    padding: 15px 0;
+}
+
+.input-text {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.select-box {
+    width: 240px;
+    height: 30px;
+}
+
+.message {
+    width: 100%;
+    height: 280px;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+/* ボタンエリア全体 */
+.button-area {
+    margin: 20px 0 0 300px;
+    display: flex;
+}
+
+/* ボタンエリア要素 */
+.form-button {
+    margin: 0 20px;
+}
+
+@media (max-width: 800px) {
+    /* フォームエリア要素 */
+    .form-area dt,
+    .form-area dd {
+        width: 100%;
+    }
+   .form-area dt {
+       padding-bottom: 0;
+    }
+
+    /* ボタンエリア全体 */
+   .button-area {
+        margin: 20px 0 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ボタンエリア要素 */
+    .form-button {
+        margin: 10px 20px;
+    }
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -25,9 +26,9 @@ class NewsController extends Controller
         $news = new News;
         $form = $request->all();
 
-        // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
+        // フォームから画像が送信されてきたら、保存して、$news->images_path に画像のパスを保存する
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
+            $path = $request->file('image')->store('public/images/top/news');
             $news->image_path = basename($path);
         } else {
             $news->image_path = null;
@@ -42,7 +43,8 @@ class NewsController extends Controller
         $news->fill($form);
         $news->save();
 
-        return redirect('admin/news');
+        // バリデーションが成功した場合、一覧画面にリダイレクト
+        return redirect()->route('admin.news');
     }
 
     public function edit(Request $request)
@@ -68,6 +70,7 @@ class NewsController extends Controller
         // 該当するデータを上書きして保存する
         $news->fill($news_form)->save();
 
-        return redirect('admin/news');
+        // バリデーションが成功した場合、一覧画面にリダイレクト
+        return redirect()->route('admin.news');
     }
 }

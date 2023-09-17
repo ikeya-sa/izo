@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* Thanks要素 */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+hr {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #c0c0c0;
+    margin: 20px 0;
+}
+
+.thanks {
+    max-width: 900px;
+    background-color: #1a1717;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 30px;
+}
+
+.thanks-body p {
+    margin-bottom: 20px;
+}

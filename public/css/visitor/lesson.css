@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* タイトル全体 */
+.main-title-inner {
+    height: calc(100vh - 110px);
+    background-image: url(/images/lesson/lesson_view.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+/* タイトル要素 */
+.main-title-text {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 240px;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+}
+
+/* ギターレッスン要素 */
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+hr {
+    border-width: 1px;
+    border-style: dashed;
+    border-color: #c0c0c0;
+    margin: 20px 0;
+}
+
+article {
+    max-width: 1200px;
+    background-color: #1a1717;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 30px;
+}
+
+.guitarlesson-body a {
+    text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+    /* タイトル全体 */
+    .main-title-inner {
+        height: calc(100vh - 60px);
+        background-image: url(/images/lesson/lesson_view_m.jpg);
+        background-position: center;
+        align-items: flex-end;
+    }
+  
+    /* タイトル要素 */
+    .main-title-text{
+        max-width: 200px;
+        text-align: left;
+        font-size: 28px;
+    }
+}

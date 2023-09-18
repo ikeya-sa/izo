@@ -4,18 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('admin.contact');
+        $posts = Contact::all()->sortByDesc('created_at');
+        return view('admin.contact', ['posts' => $posts]);
     }
 
     public function edit(Request $request)
     {
         // Contact Modelからデータを取得する
-        $contact = contact::find($request->id);
+        $contact = Contact::find($request->id);
         if (empty($contact)) {
             abort(404);
         }
@@ -25,9 +27,9 @@ class ContactController extends Controller
     public function update(Request $request)
     {
         // Validationをかける
-        $this->validate($request, contact::$rules);
+        $this->validate($request, Contact::$rules);
         // contact Modelからデータを取得する
-        $contact = contact::find($request->id);
+        $contact = Contact::find($request->id);
         // 送信されてきたフォームデータを格納する
         $contact_form = $request->all();
         unset($contact_form['_token']);
@@ -35,6 +37,6 @@ class ContactController extends Controller
         // 該当するデータを上書きして保存する
         $contact->fill($contact_form)->save();
 
-        return redirect('admin/contact');
+        return redirect()->route('admin.contact')->with('update-success', '回答記録が更新されました。');
     }
 }

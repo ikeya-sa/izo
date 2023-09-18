@@ -44,7 +44,7 @@
                         <li><a href="{{ route('discography') }}">Discography</a></li>
                         <li><a href="https://ameblo.jp/izo/" target="_blank">Blog</a></li>
                         <li><a href="{{ route('lesson') }}">Lesson</a></li>
-                        <li><a href="{{ route('contact.add') }}">Contact</a></li>
+                        <li><a href="{{ route('contact') }}">Contact</a></li>
                     </ul>    
                 </nav>
                 <div class="header-sns">

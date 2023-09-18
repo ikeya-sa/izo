@@ -16,7 +16,7 @@ class Contact extends Model
         'tel' => 'max:13',
         'genre' => 'max:120',
         'message' => 'required|max:3000',
-        'reply_date' => 'date',
+        'reply_date' => 'nullable|date',
         'reply_notes' => 'max:3000',
     );
 }

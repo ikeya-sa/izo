@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Visitor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\News;
+use App\Models\Contact;
 
 class VisitorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('index');
+        $posts = News::all()->sortByDesc('created_at');
+        return view('index', ['posts' => $posts]);
     }
     
     public function about()
@@ -27,25 +30,39 @@ class VisitorController extends Controller
         return view('lesson');
     }
     
-    public function add()
+    public function contact()
     {
         return view('contact');
     }
 
+    public function store(Request $request)
+    {
+        // Validationをかける
+        $this->validate($request, Contact::$rules);
+        // フォームデータをセッションに格納する
+        $request->session()->put('contact', $request->all());
+        
+        return redirect()->route('confirm');
+    }
+
+        public function confirm()
+    {
+        return view('confirm');
+    }
+    
     public function create(Request $request)
     {
         // Validationをかける
-        $this->validate($request, contact::$rules);
-        // contact Modelからデータを取得する
-        $contact = contact::find($request->id);
-        // 送信されてきたフォームデータを格納する
-        $contact_form = $request->all();
-        unset($contact_form['_token']);
+        $this->validate($request, Contact::$rules);
 
-        // 該当するデータを上書きして保存する
-        $contact->fill($contact_form)->save();
+        // 送信されてきたフォームデータを格納する（_tokenを除く）
+        $contact_form = $request->except('_token');
 
-        return redirect('confirm');
+        // Contactモデルを使用してデータベースに保存する
+        Contact::create($contact_form);
+
+        // バリデーションが成功した場合、thanks画面にリダイレクト
+        return redirect()->route('thanks');
     }
     
     public function thanks()

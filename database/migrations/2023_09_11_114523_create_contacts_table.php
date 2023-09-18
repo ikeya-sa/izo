@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('message');  // 内容
             $table->date('reply_date')->nullable(); // 回答日
             $table->text('reply_notes')->nullable();  // 回答記録
-            $table->string('user_name', 90);  // 更新管理者名
+            $table->string('user_name', 90)->nullable();  // 更新管理者名
             $table->timestamps();
         });
     }

@@ -14,6 +14,13 @@ hr {
     margin: 20px 0;
 }
 
+input,
+textarea {
+    color: black;
+    background-color: #cccccc;
+    opacity: 1;
+}
+
 .confirm {
     max-width: 900px;
     background-color: #1a1717;

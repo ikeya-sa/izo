@@ -11,25 +11,49 @@
 @section('content')
     <!-- メイン　入力エリア -->
     <div class="form">
-        <!-- 未実装 -->
-        <form action="../news.html" method="post">
+        <!-- エラーメッセージ -->
+        @if ($errors->any())
+            <div class="error-message">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        <form action="{{ route('admin.news.edit') }}" method="post" enctype="multipart/form-data">
+            @csrf
             <dl class="form-area">
                 <dt><label>タイトル</label></dt>
-                <dd><textarea class="title" name="title" required></textarea></dd>
+                <dd><textarea class="title" name="title" required>{{ old('title', $news_form->title) }}</textarea></dd>
                 <dt><label>本文</label></dt>
-                <dd><textarea class="message" name="message" required></textarea></dd>
+                <dd><textarea class="body" name="body" required>{{ old('body', $news_form->body) }}</textarea></dd>
+                <dt><label>参照先1</label></dt>
+                <dd><input class="input-text" type="text" name="ref_text_1" value="{{ old('ref_text_1', $news_form->ref_text_1) }}"></dd>
+                <dt><label>参照先URL1</label></dt>
+                <dd><input class="input-url" type="text" name="ref_url_1" value="{{ old('ref_url_1', $news_form->ref_url_1) }}"></dd>
+                <dt><label>参照先2</label></dt>
+                <dd><input class="input-text" type="text" name="ref_text_2" value="{{ old('ref_text_2', $news_form->ref_text_2) }}"></dd>
+                <dt><label>参照先URL2</label></dt>
+                <dd><input class="input-url" type="text" name="ref_url_2" value="{{ old('ref_url_2', $news_form->ref_url_2) }}"></dd>
                 <dt><label>画像</label></dt>
-                <dd><input type="file" class="image" name="image">
+                <dd><input type="file" class="image" name="image"></dd>
+                <!-- php artisan storage:linkでシンボリックリンクが必要 -->
+                @if ($news_form->image_path)
+                    <dt><label></label></dt>
+                    <dd><img class="image-display" src="{{ secure_asset('storage/image/' . $news_form->image_path) }}"></dd>
+                @endif
             </dl>
+            <!-- メイン　ボタンエリア -->
+            <div class="button-area">
+                <div class="edit-button">
+                    <input type="hidden" name="id" value="{{ $news_form->id }}">
+                    <button class="form-button" type="submit">更新</button>
+                </div>
+                <div class="back-button">
+                    <button class="form-button" type="button" onclick="history.back();">戻る</button>
+                </div>
+            </div>
         </form>
-    </div>
-    <!-- メイン　ボタンエリア -->
-    <div class="button-area">
-        <div class="edit-button">
-            <button class="form-button" type="submit">更新</button>
-        </div>
-        <div class="back-button">
-            <button class="form-button" type="button" onclick="history.back();">戻る</button>
-        </div>
     </div>
 @endsection

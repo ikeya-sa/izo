@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
@@ -12,9 +15,10 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    public function admin()
+    public function admin(Request $request)
     {
-        return view('admin.admin');
+        $posts = User::all();
+        return view('admin.admin', ['posts' => $posts]);
     }
     
     public function add()
@@ -22,38 +26,35 @@ class AdminController extends Controller
         return view('admin.admin.create');
     }
     
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+    
     public function create(Request $request)
     {
-        // Validationを行う
-        $this->validate($request, admin::$rules);
+        // Validationをかける
+        $this->validator($request->all())->validate();
 
-        $admin = new admin;
-        $form = $request->all();
+        // バリデーションが成功した場合、ユーザーを登録する
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
 
-        // フォームから画像が送信されてきたら、保存して、$admin->image_path に画像のパスを保存する
-        if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/image');
-            $admin->image_path = basename($path);
-        } else {
-            $admin->image_path = null;
-        }
-
-        // フォームから送信されてきた_tokenを削除する
-        unset($form['_token']);
-        // フォームから送信されてきたimageを削除する
-        unset($form['image']);
-
-        // データベースに保存する
-        $admin->fill($form);
-        $admin->save();
-
-        return redirect('admin/admin');
+        // 登録が成功した場合、Admin管理画面にリダイレクトする
+        return redirect()->route('admin.admin')->with('create-success', '管理者が追加されました。');
     }
     
     public function edit(Request $request)
     {
         // admin Modelからデータを取得する
-        $admin = admin::find($request->id);
+        $admin = User::find($request->id);
         if (empty($admin)) {
             abort(404);
         }
@@ -63,9 +64,23 @@ class AdminController extends Controller
     public function update(Request $request)
     {
         // Validationをかける
-        $this->validate($request, admin::$rules);
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($request->id),
+                ],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
         // admin Modelからデータを取得する
-        $admin = admin::find($request->id);
+        $admin = User::find($request->id);
+        if (!$admin) {
+            abort(404);
+        }
+
         // 送信されてきたフォームデータを格納する
         $admin_form = $request->all();
         unset($admin_form['_token']);
@@ -73,6 +88,18 @@ class AdminController extends Controller
         // 該当するデータを上書きして保存する
         $admin->fill($admin_form)->save();
 
-        return redirect('admin/admin');
+        // 更新が成功した場合、Admin管理画面にリダイレクトする
+        return redirect()->route('admin.admin')->with('update-success', '管理者が更新されました。');
+    }
+    
+    public function delete(Request $request)
+    {
+        // 該当するNews Modelを取得
+        $admin = User::find($request->id);
+
+        // 削除する
+        $admin->delete();
+
+        return redirect()->route('admin.admin')->with('delete-success', '管理者が削除されました。');
     }
 }

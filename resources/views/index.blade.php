@@ -15,37 +15,28 @@
             </div>
             <hr>
             <ul class="news-list">
-                <li>
-                    <div class="news-content">
-                        <!-- 左右ブロックに分割 -->
-                        <div class="news-left">
-                            <p class="news-content-date">2023年08月26日</p>
-                            <img src={{ secure_asset('images/top/news/0929.gif') }} class="news-content-img" alt="新着記事の画像">
+                @foreach($posts as $post)
+                    <li>
+                        <div class="news-content">
+                            <!-- 左右ブロックに分割 -->
+                            <div class="news-left">
+                                <p class="news-content-date">{{ $post->created_at->format('Y年m月d日') }}</p>
+                                <div class="image-display">
+                                    @if ($post->image_path)
+                                        <img src="{{ secure_asset('storage/image/' . $post->image_path) }}" alt="新着記事の画像">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="news-right">
+                                <h3 class="news-content-title">{{ $post->title }}</h3>
+                                <p class="news-content-body">{{ $post->body }}<br>
+                                &#9654;<a class="news-ref-link" href="{{ $post->ref_url_1 }}">{{ $post->ref_text_1 }}</a><br>
+                                &#9654;<a class="news-ref-link" href="{{ $post->ref_url_2 }}">{{ $post->ref_text_2 }}</a></p>
+                            </div>
                         </div>
-                        <div class="news-right">
-                            <h3 class="news-content-title">9/29（金）吉祥寺CRESCENDO「CLIFF'EM ALL 2023」出演決定！</h3>
-                            <p class="news-content-body">Open 18:30 / Start 19:00 <br>◆ 来場チケット 前売 2500yen+Drink / 当日 3000yen+Drink <br>◆ 配信 2000yen<br>
-                            &#9654;<a class="news-ref-link" href="https://passmarket.yahoo.co.jp/event/show/detail/02jnugv1uf831.html">来場はこちら</a><br>
-                            &#9654;<a class="news-ref-link" href="https://twitcasting.tv/c:crescendo_live/shopcart/255959">配信はこちら</a></p>
-                        </div>
-                    </div>
-                    <hr>
-                </li>
-                <li>
-                    <div class="news-content">
-                        <div class="news-left">
-                            <p class="news-content-date">2023年07月08日</p>
-                            <img src={{ secure_asset('images/top/news/0806.jpg') }} class="news-content-img" alt="新着記事の画像">
-                        </div>
-                        <div class="news-right">
-                            <h3 class="news-content-title">8/6(日) 吉祥寺CRESCENDO「HIGH VOLTAGE」出演決定！</h3>
-                            <p class="news-content-body">Open 18:00 / Start 18:30 <br>◆ 来場チケット 前売 3000yen+Drink / 当日 3500yen+Drink <br>◆ 配信 2500yen<br>
-                            &#9654;<a class="news-ref-link" href="https://passmarket.yahoo.co.jp/event/show/detail/02j6cc1hve531.html">来場はこちら</a><br>
-                            &#9654;<a class="news-ref-link" href="https://twitcasting.tv/c:crescendo_live/shopcart/246607">配信はこちら</a></p>
-                        </div>
-                    </div>
-                    <hr>
-                </li>
+                        <hr>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </article>

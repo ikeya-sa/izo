@@ -20,35 +20,44 @@
                 </p>
             </div>
             <div class="form">
-                <form action="./confirm.html" method="post">
+                <!-- エラーメッセージ -->
+                @if ($errors->any())
+                    <div class="error-message">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif 
+                <form action="{{ route('store') }}" method="post">
+                    @csrf
                     <dl class="form-area">
                         <dt><label class="required">お名前（ハンドルネーム可）</label></dt>
-                        <dd><input class="input-text" type="text" name="name" required></dd>
+                        <dd><input class="input-text" type="text" name="name" value="{{ old('name') }}" required autofocus></dd>
                         <dt><label class="required">メールアドレス</label></dt>
-                        <dd><input class="input-text" type="email" name="email" required></dd>
-                        <dt><label>お電話番号（ハイフン不要）</label></dt>
-                        <dd><input class="input-text" type="tel" name="tel"></dd>
+                        <dd><input class="input-text" type="email" name="email" value="{{ old('email') }}" required></dd>
+                        <dt><label>お電話番号</label></dt>
+                        <dd><input class="input-text" type="tel" name="tel" value="{{ old('tel') }}"></dd>
                         <dt><label>お問い合わせ種別</label></dt>
-                            <dd>
-                                <select class="select-box" name="genre">
-                                    <option value="サポート演奏のご依頼・ご相談">サポート演奏のご依頼・ご相談</option>
-                                    <option value="レッスンのご依頼・ご相談">レッスンのご依頼・ご相談</option>
-                                    <option value="セミナーのご依頼・ご相談">セミナーのご依頼・ご相談</option>
-                                    <option value="製品レビューのご依頼・ご相談">製品レビューのご依頼・ご相談</option>
-                                    <option value="Izoの活動に関するご質問">Izoの活動に関するご質問</option>
-                                    <option value="その他">その他</option>
-                                </select>
-                            </dd>
+                        <dd>
+                            <select class="select-box" name="genre">
+                                <option value="" selected disabled></option>
+                                    @foreach(['サポート演奏のご依頼・ご相談', 'レッスンのご依頼・ご相談', 'セミナーのご依頼・ご相談', '製品レビューのご依頼・ご相談', 'Izoの活動に関するご質問', 'その他'] as $option)
+                                        <option value="{{ $option }}" {{ old('genre') == $option ? 'selected' : '' }}>{{ $option }}</option>
+                                    @endforeach
+                            </select>
+                        </dd>
                         <dt><label class="required">お問い合わせ内容</label></dt>
-                        <dd><textarea class="message" name="message" required></textarea></dd>
+                        <dd><textarea class="message" name="message" required>{{ old('message') }}</textarea></dd>
                     </dl>
-                </form>
-                <!-- メイン　ボタンエリア -->
-                <div class="button-area">
-                    <div class="contact-button">
-                        <button class="form-button" type="submit">確認</button>
+                    <!-- メイン　ボタンエリア -->
+                    <div class="button-area">
+                        <div class="contact-button">
+                            <button class="form-button" type="submit">確認</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

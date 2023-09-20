@@ -22,24 +22,22 @@
 @section('content')
     <!-- メイン　入力エリア -->
     <div class="form">
-        <!-- 未実装 -->
+        @if ($errors->any())
+            <div class="error-message">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('login') }}" method="post">
             @csrf
             <dl class="form-area">
                 <dt><label>メールアドレス</label></dt>
                 <dd><input class="input-text{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" name="email"  value="{{ old('email') }}" required autofocus></dd>
-                    @if ($errors->has('email'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
                 <dt><label>パスワード</label></dt>
                 <dd><input class="password{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" required></dd>
-                    @if ($errors->has('password'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
             </dl>
             <div class="checkbox">
                 <label><input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>　ログイン情報を記憶する</label>

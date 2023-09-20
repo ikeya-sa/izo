@@ -31,9 +31,9 @@
             <tbody>
                 @foreach($posts as $contact)
                     <tr>
-                        <td class="td-id"><a href="{{ route('admin.contact.edit') }}">{{ $contact->id }}</a></td>
+                        <td class="td-id"><a href="{{ route('admin.contact.edit', ['id' => $contact->id]) }}">{{ $contact->id }}</a></td>
                         <td class="td-contact-date">{{ $contact->created_at->format('Y-m-d') }}</td>
-                        <td class="td-reply-date">{{ $contact->reply-date }}</td>
+                        <td class="td-reply-date">{{ $contact->reply_date }}</td>
                         <td class="td-name">{{ $contact->name }}</td>
                         <td class="td-genre">{{ $contact->genre }}</td>
                         <td class="td-message">{{ $contact->message }}</td>

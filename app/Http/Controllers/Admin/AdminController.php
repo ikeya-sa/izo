@@ -72,10 +72,10 @@ class AdminController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($request->id),
                 ],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 
-        // admin Modelからデータを取得する
+        // User Modelからデータを取得する
         $admin = User::find($request->id);
         if (!$admin) {
             abort(404);
@@ -84,6 +84,11 @@ class AdminController extends Controller
         // 送信されてきたフォームデータを格納する
         $admin_form = $request->all();
         unset($admin_form['_token']);
+
+        // パスワードが変更された場合に新しいパスワードをbcryptでハッシュ化して保存
+        if ($request->filled('password')) {
+            $admin_form['password'] = bcrypt($request->input('password'));
+        }
 
         // 該当するデータを上書きして保存する
         $admin->fill($admin_form)->save();

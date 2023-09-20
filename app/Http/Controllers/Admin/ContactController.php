@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -27,11 +28,14 @@ class ContactController extends Controller
     public function update(Request $request)
     {
         // Validationをかける
-        $this->validate($request, Contact::$rules);
-        // contact Modelからデータを取得する
+        $this->validate($request, Contact::$rules_admin);
+        // Contact Modelからデータを取得する
         $contact = Contact::find($request->id);
         // 送信されてきたフォームデータを格納する
         $contact_form = $request->all();
+        // User Modelからデータを取得して追加する
+        $contact_form['user_name'] = Auth::user()->name;
+        
         unset($contact_form['_token']);
 
         // 該当するデータを上書きして保存する

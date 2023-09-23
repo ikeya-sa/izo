@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Contact;
+use App\Mail\ContactMail;
 
 class VisitorController extends Controller
 {
@@ -60,6 +61,9 @@ class VisitorController extends Controller
 
         // Contactモデルを使用してデータベースに保存する
         Contact::create($contact_form);
+        
+        // メールを送信する
+        Mail::send(new ContactMail($contact_form));
 
         // バリデーションが成功した場合、thanks画面にリダイレクト
         return redirect()->route('thanks');

@@ -34,7 +34,7 @@
         <!-- 共通ヘッダー -->
         <header class="header">
             <div class="header-inner">
-                <a class="header-logo" href="./index.html">
+                <a class="header-logo" href="{{ route('index') }}">
                     <img src="./images/common/logo-header.png" alt="Izo Journeyman">
                 </a>
                 <nav class="site-menu">

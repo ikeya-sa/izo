@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 use App\Http\Controllers\Admin\AdminController;
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('index', 'index')->name('index');
@@ -49,6 +45,8 @@ Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('custom-logout');
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 use App\Http\Controllers\Visitor\VisitorController;
 Route::controller(VisitorController::class)->group(function () {
     Route::get('/', 'index')->name('index');
@@ -61,5 +59,3 @@ Route::controller(VisitorController::class)->group(function () {
     Route::post('confirm', 'create')->name('create');
     Route::get('thanks', 'thanks')->name('thanks');
 });
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

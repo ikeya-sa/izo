@@ -31,48 +31,14 @@ class ContactMail extends Mailable
     public function build()
     {
         return $this->to($this->mail_data['email'])
+            ->from('6354pfun@jcom.home.ne.jp', 'Izo info')
             ->subject('お問い合わせありがとうございます')
-            ->text('admin.contact.mail')
+            ->text('contact_mail')
             ->with([
                 'name' => $this->mail_data['name'],
                 'genre' => $this->mail_data['genre'],
-                'message' => $this->mail_data['message'],
+                'contact_message' => $this->mail_data['message'],//'message'にすると、Illuminate\Mail\Messageのインスタンスとして渡されてエラー
             ])
             ->bcc(['neripapa16@gmail.com']); // BCCの受信者を指定
-        }
-    }
-
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'Contact Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [];
     }
 }

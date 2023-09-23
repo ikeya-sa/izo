@@ -10,7 +10,7 @@
         <meta name="description" content="関東を拠点に活動しているソロギタリスト「Izo」のOffiial Web Siteです。ライブ情報や配信の告知など行っていきます。">
         
         <!-- Scripts -->
-        <script src="./js/toggle-menu.js"></script>
+        <script src="/js/visitor/toggle-menu.js"></script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

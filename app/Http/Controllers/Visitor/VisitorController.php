@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Contact;
 use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class VisitorController extends Controller
 {

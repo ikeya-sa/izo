@@ -34,7 +34,7 @@
                     @csrf
                     <dl class="form-area">
                         <dt><label class="required">お名前（ハンドルネーム可）</label></dt>
-                        <dd><input class="input-text" type="text" name="name" value="{{ old('name') }}" required autofocus></dd>
+                        <dd><input class="input-text" type="text" name="name" value="{{ old('name') }}" required></dd>
                         <dt><label class="required">メールアドレス</label></dt>
                         <dd><input class="input-text" type="email" name="email" value="{{ old('email') }}" required></dd>
                         <dt><label>お電話番号</label></dt>

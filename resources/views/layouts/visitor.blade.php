@@ -7,8 +7,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         
         <title>Izo | Journeyman</title>
+        <link href="{{ secure_asset('images/common/favicon.ico') }}" type="image/x-icon" rel="shortcut icon">
         <meta name="description" content="関東を拠点に活動しているソロギタリスト「Izo」のOffiial Web Siteです。ライブ情報や配信の告知など行っていきます。">
-        
+
         <!-- Scripts -->
         <script src="/js/visitor/toggle-menu.js"></script>
 

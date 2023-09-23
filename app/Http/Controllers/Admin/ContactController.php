@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function contact(Request $request)
     {
-        $posts = Contact::all()->sortByDesc('created_at');
+        $posts = Contact::orderBy('created_at', 'desc')->paginate(10); // 1ページあたり10件のデータを取得
         return view('admin.contact', ['posts' => $posts]);
     }
 

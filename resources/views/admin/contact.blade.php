@@ -13,7 +13,7 @@
     <div class="contact-list-area">
         @if (session('update-success'))
             <div class="success-message">
-            {{ session('update-success') }}
+                {{ session('update-success') }}
             </div>
         @endif
         <table class="contact-list">
@@ -41,5 +41,17 @@
                 @endforeach
             </tbody>
         </table>
+        <!-- ページネーションリンク -->
+        <div class="pagination-area">
+            <!-- 前の10件のリンク -->
+            @if ($posts->currentPage() > 1)
+                <a href="{{ $posts->previousPageUrl() }}" class="pagination-text">前の10件</a>
+            @endif
+            <!-- 次の10件のリンク -->
+            @if ($posts->hasMorePages())
+                <a href="{{ $posts->nextPageUrl() }}" class="pagination-text">次の10件</a>
+            @endif
+            {{ $posts->links() }}
+        </div>
     </div>
 @endsection

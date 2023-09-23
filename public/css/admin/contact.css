@@ -2,7 +2,7 @@
 
 /* メイン　一覧エリア全体 */
 .contact-list-area {
-    padding: 20px 80px 0;
+    padding: 20px 80px;
     line-height: 2;
 }
 
@@ -38,6 +38,20 @@
 .td-message {
     max-width: 570px;
     word-wrap: break-word;
+}
+
+/* メイン　ページネーションリンク */
+.pagination-area {
+    margin-top: 10px;
+}
+
+.pagination-text {
+    margin-right: 10px;
+}
+
+.pagination li { /* linksの内容にliが含まれている */
+    display: inline-block; 
+    margin-right: 10px;
 }
 
 @media (max-width: 800px) {

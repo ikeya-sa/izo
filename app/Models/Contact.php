@@ -13,7 +13,7 @@ class Contact extends Model
     public static $rules = array(
         'name' => 'required|max:90',
         'email' => 'required|max:254',
-        'tel' => 'max:13',
+        'tel' => 'regex:/^[0-9\-]+$/|max:13',
         'genre' => 'max:120',
         'message' => 'required|max:3000',
     );

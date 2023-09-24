@@ -29,9 +29,9 @@ class AdminController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => ['required', 'max:90'],
+            'email' => ['required', 'email', 'max:254', 'unique:users'],
+            'password' => ['required', 'regex:/^[a-zA-Z0-9!@#$%^&*()]+$/', 'min:8', 'confirmed'],
         ]);
     }
     
@@ -65,14 +65,14 @@ class AdminController extends Controller
     {
         // Validationをかける
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'max:90'],
             'email' => [
                 'required',
                 'email',
-                'max:255',
+                'max:254',
                 Rule::unique('users')->ignore($request->id),
                 ],
-            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'regex:/^[a-zA-Z0-9!@#$%^&*()]+$/', 'min:8', 'confirmed'],
         ]);
 
         // User Modelからデータを取得する

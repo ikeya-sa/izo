@@ -30,8 +30,14 @@
                             <div class="news-right">
                                 <h3 class="news-content-title">{{ $post->title }}</h3>
                                 <p class="news-content-body">{{ $post->body }}<br>
-                                &#9654;<a class="news-ref-link" href="{{ $post->ref_url_1 }}">{{ $post->ref_text_1 }}</a><br>
-                                &#9654;<a class="news-ref-link" href="{{ $post->ref_url_2 }}">{{ $post->ref_text_2 }}</a></p>
+                                @if ($post->ref_url_1)
+                                    &#9654;<a class="news-ref-link" href="{{ $post->ref_url_1 }}" target="_blank">{{ $post->ref_text_1 }}</a>
+                                @endif
+                                @if ($post->ref_url_2)
+                                    <br>
+                                    &#9654;<a class="news-ref-link" href="{{ $post->ref_url_2 }}" target="_blank">{{ $post->ref_text_2 }}</a>
+                                @endif
+                                </p>
                             </div>
                         </div>
                         <hr>

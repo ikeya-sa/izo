@@ -12,14 +12,14 @@ class Contact extends Model
 
     public static $rules = array(
         'name' => 'required|max:90',
-        'email' => 'required|max:254',
-        'tel' => 'regex:/^[0-9\-]+$/|max:13',
+        'email' => 'required|email|max:254',
+        'tel' => 'nullable|regex:/^[0-9\-]+$/|max:13',
         'genre' => 'max:120',
-        'message' => 'required|max:3000',
+        'message' => 'required|max:1000',
     );
     
     public static $rules_admin = array(
         'reply_date' => 'nullable|date',
-        'reply_notes' => 'max:3000',
+        'reply_notes' => 'max:1000',
     );
 }

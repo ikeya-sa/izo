@@ -42,7 +42,6 @@
             <div class="title-area">
                 <ul class="title-text">
                     <li><h1>@yield('main-title')</h1></li>
-                    {{-- 未実装　ログインしていなければログイン画面を表示するように修正する予定 --}}
                     @guest
                     <li><a href="{{ route('login') }}">ログイン</a></li>
                     @else

@@ -29,13 +29,13 @@
                 <dt><label>本文</label></dt>
                 <dd><textarea class="body" name="body" required>{{ old('body') }}</textarea></dd>
                 <dt><label>参照先1</label></dt>
-                <dd><input class="input-text" type="text" name="ref_text_1">{{ old('ref_text_1') }}</dd>
+                <dd><input class="input-text" type="text" name="ref_text_1" value="{{ old('ref_text_1') }}"></dd>
                 <dt><label>参照先URL1</label></dt>
-                <dd><input class="input-url" type="text" name="ref_url_1">{{ old('ref_url_1') }}</dd>
+                <dd><input class="input-url" type="text" name="ref_url_1" value="{{ old('ref_url_1') }}"></dd>
                 <dt><label>参照先2</label></dt>
-                <dd><input class="input-text" type="text" name="ref_text_2">{{ old('ref_text_2') }}</dd>
+                <dd><input class="input-text" type="text" name="ref_text_2" value="{{ old('ref_text_2') }}"></dd>
                 <dt><label>参照先URL2</label></dt>
-                <dd><input class="input-url" type="text" name="ref_url_2">{{ old('ref_url_2') }}</dd>
+                <dd><input class="input-url" type="text" name="ref_url_2" value="{{ old('ref_url_2') }}"></dd>
                 <dt><label>画像</label></dt>
                 <dd><input type="file" class="image" name="image"></dd>
             </dl>

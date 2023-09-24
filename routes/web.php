@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::get('logout', 'Auth\LoginController@logout')->name('custom-logout');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 use App\Http\Controllers\Admin\AdminController;
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('index', 'index')->name('index');
@@ -40,12 +46,6 @@ Route::controller(ContactController::class)->prefix('admin')->name('admin.')->mi
     Route::get('contact/edit', 'edit')->name('contact.edit');
     Route::post('contact/edit', 'update')->name('contact.update');
 });
-
-Auth::routes();
-
-Route::get('logout', 'Auth\LoginController@logout')->name('custom-logout');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 use App\Http\Controllers\Visitor\VisitorController;
 Route::controller(VisitorController::class)->group(function () {

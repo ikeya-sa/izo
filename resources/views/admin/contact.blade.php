@@ -45,17 +45,17 @@
         <div class="pagination-area">
             <!-- 最初のページへのリンク -->
             @if (!$posts->onFirstPage())
-                <a href="{{ $posts->url(1) }}" rel="prev" class="pagination-text">&laquo;</a>
+                <li><a href="{{ $posts->url(1) }}" rel="prev" class="pagination-text">&laquo;</a></li>
             @else
-                <span class="pagination-text">&laquo;</span>
+                <li class="disabled"><span>&laquo;</span></li>
             @endif
             <!-- 各ページへのリンク -->
             {{ $posts->links() }}
             <!-- 最後のページへのリンク -->
             @if ($posts->hasMorePages())
-                <a href="{{ $posts->url($posts->lastPage()) }}" rel="next" class="pagination-text">&raquo;</a>
+                <li><a href="{{ $posts->url($posts->lastPage()) }}" rel="next" class="pagination-text">&raquo;</a></li>
             @else
-                <span class="pagination-text">&raquo;</span>
+                <li class="disabled"><span>&raquo;</span></li>
             @endif
         </div>
     </div>

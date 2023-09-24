@@ -11,7 +11,8 @@
 
 /* リストの中黒 */
 ul,
-ol {
+ol,
+li {
   list-style: none;
 }
 

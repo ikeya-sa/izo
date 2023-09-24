@@ -43,15 +43,20 @@
         </table>
         <!-- ページネーションリンク -->
         <div class="pagination-area">
-            <!-- 前の10件のリンク -->
-            @if ($posts->currentPage() > 1)
-                <a href="{{ $posts->previousPageUrl() }}" class="pagination-text">前の10件</a>
+            <!-- 最初のページへのリンク -->
+            @if (!$posts->onFirstPage())
+                <a href="{{ $posts->url(1) }}" rel="prev" class="pagination-text">&laquo;</a>
+            @else
+                <span class="pagination-text">&laquo;</span>
             @endif
-            <!-- 次の10件のリンク -->
-            @if ($posts->hasMorePages())
-                <a href="{{ $posts->nextPageUrl() }}" class="pagination-text">次の10件</a>
-            @endif
+            <!-- 各ページへのリンク -->
             {{ $posts->links() }}
+            <!-- 最後のページへのリンク -->
+            @if ($posts->hasMorePages())
+                <a href="{{ $posts->url($posts->lastPage()) }}" rel="next" class="pagination-text">&raquo;</a>
+            @else
+                <span class="pagination-text">&raquo;</span>
+            @endif
         </div>
     </div>
 @endsection

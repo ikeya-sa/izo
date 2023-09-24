@@ -42,16 +42,17 @@
 
 /* メイン　ページネーションリンク */
 .pagination-area {
+    display: flex;
     margin-top: 10px;
 }
 
 .pagination-text {
-    margin-right: 10px;
+    margin: 0 10px;
 }
 
 .pagination li { /* linksの内容にliが含まれている */
     display: inline-block; 
-    margin-right: 10px;
+    margin: 0 10px;
 }
 
 @media (max-width: 800px) {

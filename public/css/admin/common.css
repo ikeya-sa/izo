@@ -4,9 +4,9 @@
 *,
 ::before,
 ::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 /* 区切りの水平線 */
@@ -18,22 +18,28 @@ hr {
 ul,
 ol,
 li {
-  list-style: none;
+    list-style: none;
 }
 
 /* フォント */
 body {
-  font-size: 16px;
-  line-height: 1;
-  background-color: #f5f5f5;
+    font-size: 16px;
+    line-height: 1;
+    background-color: #f5f5f5;
 }
 
 /* 表の枠線 */
 table,
 th,
 td {
-  border:1px solid;
+    border:1px solid;
 }
+
+/* 表の見出し */
+th {
+    background-color: #e0ffff;
+}
+
 
 /* 完了メッセージ */
 .success-message {

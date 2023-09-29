@@ -28,6 +28,7 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->midd
     Route::get('admin/edit', 'edit')->name('admin.edit');
     Route::post('admin/edit', 'update')->name('admin.update');
     Route::get('admin/delete', 'delete')->name('admin.delete');
+    Route::post('admin/delete/{id}', 'destroy')->name('admin.destroy');
 });
 
 use App\Http\Controllers\Admin\NewsController;

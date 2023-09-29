@@ -99,8 +99,27 @@ class AdminController extends Controller
     
     public function delete(Request $request)
     {
-        // 該当するNews Modelを取得
+        // admin Modelからデータを取得する
         $admin = User::find($request->id);
+        if (empty($admin)) {
+            abort(404);
+        }
+                
+        // 管理者が1人のみの場合、削除を許可しない
+        if (User::all()->count() === 1) {
+        return back()->with('delete-error', '管理者を全て削除することはできません。');
+        }
+
+        return view('admin.admin.delete', ['admin_form' => $admin]);
+    }
+    
+    public function destroy($id)
+    {
+        // admin Modelからデータを取得する
+        $admin = User::find($id);
+        if (empty($admin)) {
+            abort(404);
+        }
 
         // 削除する
         $admin->delete();

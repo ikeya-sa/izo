@@ -31,6 +31,10 @@
             <div class="success-message">
             {{ session('delete-success') }}
             </div>
+            @elseif (session('delete-error'))
+            <div class="success-message">
+            {{ session('delete-error') }}
+            </div>
         @endif
         <table class="admin-list">
             <caption class="list-name">Admin一覧</caption>

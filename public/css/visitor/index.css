@@ -57,7 +57,6 @@ hr {
 
 .news-content-date {
     font-size: 12px;
-    line-height: 20px;
 }
 
 .news-content-img {
@@ -72,17 +71,11 @@ hr {
 
 .news-content-title {
     font-size: 20px;
-    line-height: 40px;
-    margin-top: 30px;
-}
-
-.news-content-body {
-    line-height: 20px;
+    margin-top: 10px;
 }
 
 .news-ref-link {
     text-decoration: underline;
-    line-height: 30px;
 }
 
 /* Youtube要素 */
@@ -117,7 +110,6 @@ hr {
     }
   
     .news-content-title {
-        line-height: 24px;
         margin-top: 16px;
     }
   

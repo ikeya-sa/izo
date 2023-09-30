@@ -28,7 +28,7 @@ Route::controller(AdminController::class)->prefix('admin')->name('admin.')->midd
     Route::get('admin/edit', 'edit')->name('admin.edit');
     Route::post('admin/edit', 'update')->name('admin.update');
     Route::get('admin/delete', 'delete')->name('admin.delete');
-    Route::post('admin/delete/{id}', 'destroy')->name('admin.destroy');
+    Route::post('admin/delete', 'destroy')->name('admin.destroy');
 });
 
 use App\Http\Controllers\Admin\NewsController;
@@ -39,6 +39,7 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
     Route::get('news/edit', 'edit')->name('news.edit');
     Route::post('news/edit', 'update')->name('news.update');
     Route::get('news/delete', 'delete')->name('news.delete');
+    Route::post('news/delete', 'destroy')->name('news.destroy');
 });
 
 use App\Http\Controllers\Admin\ContactController;

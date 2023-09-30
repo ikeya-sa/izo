@@ -113,10 +113,10 @@ class AdminController extends Controller
         return view('admin.admin.delete', ['admin_form' => $admin]);
     }
     
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         // admin Modelからデータを取得する
-        $admin = User::find($id);
+        $admin = User::find($request->id);
         if (empty($admin)) {
             abort(404);
         }

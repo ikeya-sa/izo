@@ -29,13 +29,26 @@
                             </div>
                             <div class="news-right">
                                 <h3 class="news-content-title">{{ $post->title }}</h3>
-                                <p class="news-content-body">{{ $post->body }}<br>
+                                <p class="news-content-body">{{ $post->body_1 }}<br>
+                                @if ($post->body_2)
+                                {{ $post->body_2 }}<br>
+                                @endif
+                                @if ($post->body_3)
+                                {{ $post->body_3 }}<br>
+                                @endif
+                                @if ($post->body_4)
+                                {{ $post->body_4 }}<br>
+                                @endif
                                 @if ($post->ref_url_1)
                                     &#9654;<a class="news-ref-link" href="{{ $post->ref_url_1 }}" target="_blank">{{ $post->ref_text_1 }}</a>
                                 @endif
                                 @if ($post->ref_url_2)
                                     <br>
                                     &#9654;<a class="news-ref-link" href="{{ $post->ref_url_2 }}" target="_blank">{{ $post->ref_text_2 }}</a>
+                                @endif
+                                @if ($post->ref_url_3)
+                                    <br>
+                                    &#9654;<a class="news-ref-link" href="{{ $post->ref_url_3 }}" target="_blank">{{ $post->ref_text_3 }}</a>
                                 @endif
                                 </p>
                             </div>

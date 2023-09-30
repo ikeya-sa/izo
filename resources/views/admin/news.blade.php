@@ -49,7 +49,7 @@
                         <td class="td-id">{{ $news->id }}</td>
                         <td class="td-news-date">{{ $news->created_at->format('Y-m-d') }}</td>
                         <td class="td-title">{{ Str::limit($news->title, 30) }}</td>
-                        <td class="td-body">{{ Str::limit($news->body, 150) }}</td>
+                        <td class="td-body">{{ Str::limit($news->body_1, 150) }}</td>
                         <td class="td-link">
                             <a href="{{ route('admin.news.edit', ['id' => $news->id]) }}">編集</a><br>
                             <a href="{{ route('admin.news.delete', ['id' => $news->id]) }}">削除</a>

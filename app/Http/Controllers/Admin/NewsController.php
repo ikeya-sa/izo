@@ -85,8 +85,22 @@ class NewsController extends Controller
     
     public function delete(Request $request)
     {
-        // 該当するNews Modelを取得
+        // News Modelからデータを取得する
         $news = News::find($request->id);
+        if (empty($news)) {
+            abort(404);
+        }
+
+        return view('admin.news.delete', ['news_form' => $news]);
+    }
+    
+    public function destroy(Request $request)
+    {
+        // News Modelからデータを取得する
+        $news = News::find($request->id);
+        if (empty($news)) {
+            abort(404);
+        }
 
         // 削除する
         $news->delete();

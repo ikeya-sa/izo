@@ -14,31 +14,49 @@
 
 .form-area dt {
     width: 200px;
-    padding: 10px 0;
+    padding: 5px 0;
     font-weight: bold;
     line-height: 24px;
 }
 
 .form-area dd {
     width: calc(100% - 300px);
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
-.form-area input {
-    height: 30px;
+.title {
+    width: 100%;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.body {
+    width: 100%;
+    padding: 10px;
+    line-height: 1.5;
 }
 
 .input-text {
     width: 300px;
+    padding: 5px;
+}
+
+.input-url,
+.image-display {
+    width: 100%;
+    padding: 5px;
+}
+
+.confirm-message {
+    margin: 10px 0 0 300px;
 }
 
 /* メイン　ボタンエリア全体 */
 .button-area {
-    margin: 20px 0 30px 280px;
+    margin: 20px 0 20px 280px;
     display: flex;
 }
 
-/* メイン　ボタンエリア要素 */
 .form-button {
     margin: 0 20px;
 }
@@ -47,6 +65,7 @@
     /* メイン　フォームエリア全体 */
     .form {
         padding: 20px 30px 0;
+        line-height: 2;
     }
     
     /* メイン　フォームエリア要素 */
@@ -54,8 +73,13 @@
     .form-area dd {
         width: 100%;
     }
+    
     .form-area dt {
        padding: 0;
+    }
+    
+    .confirm-message {
+    margin: 10px 0 0;
     }
     
     /* メイン　ボタンエリア全体 */

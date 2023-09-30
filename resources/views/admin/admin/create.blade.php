@@ -3,7 +3,7 @@
 @section('title', 'Izo | 管理メニュー')
 
 @section('style')
-    <link href="{{ secure_asset('css/admin/admin/create.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/admin/admin/admin_common.css') }}" rel="stylesheet">
 @endsection
 
 @section('main-title', 'Admin登録')

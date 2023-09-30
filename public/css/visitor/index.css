@@ -70,12 +70,18 @@ hr {
 }
 
 .news-content-title {
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 22px;
+    margin: 15px 0 10px;
 }
 
 .news-ref-link {
     text-decoration: underline;
+}
+
+.news-ref-link-1 {
+    display: inline-block;
+    text-decoration: underline;
+    margin-top: 10px;
 }
 
 /* Youtube要素 */

@@ -40,7 +40,7 @@
                                 {{ $post->body_4 }}<br>
                                 @endif
                                 @if ($post->ref_url_1)
-                                    &#9654;<a class="news-ref-link" href="{{ $post->ref_url_1 }}" target="_blank">{{ $post->ref_text_1 }}</a>
+                                    &#9654;<a class="news-ref-link-1" href="{{ $post->ref_url_1 }}" target="_blank">{{ $post->ref_text_1 }}</a>
                                 @endif
                                 @if ($post->ref_url_2)
                                     <br>

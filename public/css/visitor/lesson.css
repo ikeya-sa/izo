@@ -42,10 +42,10 @@ article {
     margin: 30px auto 0;
     padding: 20px;
     border-radius: 20px;
-    line-height: 30px;
 }
 
 .guitarlesson-body a {
+    line-height: 2.5;
     text-decoration: underline;
 }
 

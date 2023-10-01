@@ -59,7 +59,11 @@
         display: none;
     }
     
+    .td-id {
+    width: 30px;
+    }
     .td-title {
-    width: calc(100% - 200px);
+        max-width: 120px;
+        word-break: break-all;
     }
 }

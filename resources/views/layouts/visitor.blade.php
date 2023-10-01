@@ -50,7 +50,7 @@
                 </nav>
                 <div class="header-sns">
                     <ul class="sns-link">
-                        <li><a href="https://twitter.com/Izo_Journeyman" target="_blank"><img src="images/common/logo_tw.png" width="20" height="20" alt="twitter"></a></li>
+                        <li><a href="https://twitter.com/Izo_Journeyman" target="_blank"><img src="images/common/logo_x.png" width="20" height="20" alt="X"></a></li>
                         <li><a href="https://www.facebook.com/IzoSoloArtist" target="_blank"><img src="images/common/logo_fb.png" width="20" height="20" alt="Facebook"></a></li>
                         <li><a href="https://instagram.com/izo_journeyman?igshid=MzRlODBiNWFlZA==" target="_blank"><img src="images/common/logo_insta.png" width="20" height="20" alt="Instagram"></a></li>
                     </ul>
@@ -72,7 +72,7 @@
             <div class="footer-inner">
                 <div class="footer-sns">
                     <ul class="sns-link">
-                        <li><a href="https://twitter.com/Izo_Journeyman" target="_blank"><img src="images/common/logo_tw.png" width="20" height="20" alt="twitter"></a></li>
+                        <li><a href="https://twitter.com/Izo_Journeyman" target="_blank"><img src="images/common/logo_x.png" width="20" height="20" alt="X"></a></li>
                         <li><a href="https://www.facebook.com/IzoSoloArtist" target="_blank"><img src="images/common/logo_fb.png" width="20" height="20" alt="Facebook"></a></li>
                         <li><a href="https://instagram.com/izo_journeyman?igshid=MzRlODBiNWFlZA==" target="_blank"><img src="images/common/logo_insta.png" width="20" height="20" alt="Instagram"></a></li>
                     </ul>

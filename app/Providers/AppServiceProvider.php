@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use App\Services\SlackNotificationServiceInterface;
+use App\Services\SlackNotificationService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            SlackNotificationServiceInterface::class,
+            SlackNotificationService::class
+        );
     }
 
     /**

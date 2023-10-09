@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id(); // 問い合わせID
             $table->string('name', 90); // 名前
             $table->string('email', 254);  // メールアドレス
-            $table->string('tel', 13)->nullable();  // 電話番号
+            $table->string('tel', 13)->nullable();  // 電話番号 integerにするとidのauto incrementと衝突する可能性があるためNG
             $table->string('genre', 100)->nullable();  // 種別
             $table->text('message');  // 内容
             $table->date('reply_date')->nullable(); // 回答日
